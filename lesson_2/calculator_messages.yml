@@ -21,4 +21,4 @@ fr:
   operator_prompt: "Quelle opération souhaitez-vous effectuer? \n 1) ajouter \n 2) soustraire \n 3) multiplier \n 4) diviser"
   valid_operator: "Doit choisir 1, 2, 3 ou 4"
   calculate_again: "Voulez-vous effectuer un autre calcul? (Y pour recalculer)"
-  goodbye: "Merci d'utiliser la calculatrice! Au revoir"
+  goodbye: "Merci d'utiliser la calculatrice! Au revoir!"
