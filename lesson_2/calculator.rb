@@ -1,6 +1,6 @@
 require 'yaml'
 MESSAGES = YAML.load_file('calculator_messages.yml')
-LANGUAGE = 'fr'
+LANGUAGE = 'en'
 
 def clear_screen
   Kernel.system('clear')
