@@ -10,6 +10,7 @@ en:
   zero_division: "You cannot divide by 0. Please enter a valid number"
   result: "The result is "
   calculate_again: "Do you want to perform another calculation? (Y to calacuate again)"
+  valid_answer: "You must enter 'Y' or 'N'"
   goodbye: "Thanks for using the calculator! Goodbye"
 fr:
   welcome: "Bienvenue dans Calculator! Entrez votre nom:"
@@ -21,4 +22,5 @@ fr:
   operator_prompt: "Quelle opération souhaitez-vous effectuer? \n 1) ajouter \n 2) soustraire \n 3) multiplier \n 4) diviser"
   valid_operator: "Doit choisir 1, 2, 3 ou 4"
   calculate_again: "Voulez-vous effectuer un autre calcul? (Y pour recalculer)"
+  valid_answer: "Vous devez entrer 'Y' ou 'N'"
   goodbye: "Merci d'utiliser la calculatrice! Au revoir!"

@@ -30,7 +30,7 @@ def get_name
 end
 
 def check_name(name)
-  /^[a-z]+$/i.match(name) || name.empty?
+  /^[a-z]+$/i.match(name)
 end
 
 def get_number
@@ -111,6 +111,23 @@ def calculate_result(number1, number2, operator)
   result
 end
 
+def get_new_calc_answer
+  answer = ' '
+  loop do
+    answer = Kernel.gets().chomp().downcase()
+    if ['y', 'yes', 'n', 'no'].include?(answer)
+      break
+    else
+      prompt('valid_answer')
+    end
+  end
+  answer
+end
+
+def new_calc(answer)
+  ['y', 'yes'].include?(answer)
+end
+
 clear_screen()
 prompt('welcome')
 name = get_name
@@ -132,9 +149,9 @@ loop do # main loop
   Kernel.puts "The result is " "#{result}"
 
   prompt('calculate_again')
-  answer = Kernel.gets().chomp()
-  break unless answer.downcase().start_with?('y')
-  clear_screen()
+  answer = get_new_calc_answer
+  break unless new_calc(answer)
+  clear_screen
 end
 
 prompt('goodbye')
