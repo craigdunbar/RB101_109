@@ -1,0 +1,10 @@
+loan_amount: "Please enter the loan amount"
+valid_loan: "Loan amount must be more than 0"
+apr: "Please enter the Annual Percentage rate (ie use 5 for 5%)"
+valid_apr: "Please enter a valid number between 0 and 100"
+loan_duration: "Please enter the loan duration in years"
+valid_years: "Please enter a valid number of years between 1 and 30"
+monthly_payment: "The monthly payment is "
+calculate_again: "Do you want to perform another calculation? (Y to calacuate again)"
+valid_answer: 'Please enter a valid answer'
+goodbye: "Thanks for using the mortgage calculator! Goodbye."
