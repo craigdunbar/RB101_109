@@ -24,3 +24,15 @@ hsh.each_value do |value|
   end
 end
 p vowels
+
+# LS solution
+vowels = 'aeiou'
+
+hsh.each do |_, value|
+  value.each do |str|
+    str.chars.each do |char|
+      puts char if vowels.include?(char)
+    end
+  end
+end
+
