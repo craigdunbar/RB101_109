@@ -14,11 +14,15 @@ def clear_screen
   system 'clear'
 end
 
+def display_newline
+  puts ""
+end
+
 def display_welcome_message
   prompt "Welcome to TIc Tac Toe"
   prompt "The winner is the first to five games"
   prompt "Good luck!"
-  puts ''
+  display_newline
 end
 
 # rubocop:disable Metrics/AbcSize
@@ -37,7 +41,7 @@ def display_board(brd)
   puts "     |     |"
   puts "  #{brd[7]}  |  #{brd[8]}  |  #{brd[9]}"
   puts "     |     |"
-  puts ""
+  display_newline
 end
 # rubocop:enable Metrics/AbcSize
 
@@ -154,7 +158,7 @@ end
 
 def display_current_score(scores)
   puts "Player :#{scores[:player_score]} Computer: #{scores[:computer_score]}"
-  puts ''
+  display_newline
 end
 
 def game_over?(scores)
@@ -226,6 +230,35 @@ def place_piece!(player, brd)
   end
 end
 
+def play_match(scores)
+  count = 1
+  current_player = determine_first_player
+  loop do # best of 5 loop
+    break if game_over?(scores)
+    board = initialize_board
+    puts "Game # #{count}"
+
+    play_single_match(current_player, board)
+    display_board(board)
+
+    current_score(board, scores)
+    game_winner(board)
+    display_current_score(scores)
+    count += 1
+    sleep(3)
+  end
+end
+
+def play_single_match(current_player, board)
+  loop do # single move loop
+    clear_screen
+    display_board(board)
+    place_piece!(current_player, board)
+    current_player = alternate_player(current_player)
+    break if someone_won?(board) || board_full?(board)
+  end
+end
+
 # Start
 
 loop do # main game loop
@@ -234,27 +267,8 @@ loop do # main game loop
   scores = { player_score: 0,
              computer_score: 0,
              tie: 0 }
-  count = 1
-  current_player = determine_first_player
-  loop do # best of 5 loop
-    break if game_over?(scores)
-    board = initialize_board
-    puts "Game # #{count}"
 
-    loop do # single move loop
-      display_board(board)
-      place_piece!(current_player, board)
-      current_player = alternate_player(current_player)
-      break if someone_won?(board) || board_full?(board)
-    end
-
-    display_board(board)
-
-    current_score(board, scores)
-    game_winner(board)
-    display_current_score(scores)
-    count += 1
-  end
+  play_match(scores)
   display_grand_winner(scores)
 
   answer = ask_for_new_game
